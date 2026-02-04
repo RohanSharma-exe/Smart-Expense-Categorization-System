@@ -52,5 +52,19 @@ flowchart LR
 2. Use `docs/ARCHITECTURE.md` to implement services and APIs.
 3. Replace placeholder schemas with your domain-specific categories and taxonomies.
 
+## Step-by-Step Build (Backend)
+1. **Set up the environment**
+   - Install Python 3.11+ and create a virtual environment.
+2. **Install dependencies**
+   - `pip install -e .`
+3. **Run the API**
+   - `uvicorn app.main:app --reload`
+4. **Try the endpoints**
+   - `GET /health`
+   - `POST /v1/transactions`
+   - `POST /v1/transactions/{id}/categorize`
+5. **Run tests**
+   - `pytest`
+
 ## Contributing
 This repository is a blueprint. Add implementation code in `services/` and `packages/` as your build out begins. Ensure all changes include tests and documentation updates.
