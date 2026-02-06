@@ -17,19 +17,10 @@ class CategorizationService:
         category_id = "uncategorized"
         confidence = 0.1
         explanation = "Default category pending rules/ML configuration."
-        merchant = txn.merchant_raw.lower()
-        if "uber" in merchant or "lyft" in merchant:
+        if "uber" in txn.merchant_raw.lower():
             category_id = "transportation"
             confidence = 0.6
-            explanation = "Matched rideshare merchant keyword."
-        elif "starbucks" in merchant or "cafe" in merchant:
-            category_id = "meals"
-            confidence = 0.55
-            explanation = "Matched coffee/meal merchant keyword."
-        elif txn.amount > 500:
-            category_id = "high_value"
-            confidence = 0.45
-            explanation = "Amount exceeds high-value threshold."
+            explanation = "Matched merchant keyword: uber."
         return CategorizationResult(
             category_id=category_id,
             confidence=confidence,

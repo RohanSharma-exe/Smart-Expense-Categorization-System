@@ -30,20 +30,3 @@ def test_ingest_and_categorize() -> None:
     data = categorize.json()
     assert data["category_id"] == "transportation"
     assert data["confidence"] >= 0.6
-
-
-def test_list_transactions() -> None:
-    payload = {
-        "external_id": "txn-002",
-        "amount": 8.75,
-        "currency": "USD",
-        "timestamp": datetime(2024, 1, 2, tzinfo=timezone.utc).isoformat(),
-        "merchant_raw": "Coffee Shop",
-    }
-    ingest = client.post("/v1/transactions", json=payload)
-    assert ingest.status_code == 200
-
-    response = client.get("/v1/transactions")
-    assert response.status_code == 200
-    items = response.json()
-    assert any(item["transaction_id"] == ingest.json()["transaction_id"] for item in items)

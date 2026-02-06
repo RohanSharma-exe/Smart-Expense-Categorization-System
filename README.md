@@ -63,11 +63,8 @@ flowchart LR
    - `GET /health`
    - `POST /v1/transactions`
    - `POST /v1/transactions/{id}/categorize`
-   - `GET /v1/transactions`
 5. **Run tests**
    - `pytest`
-
-See `docs/RUNBOOK.md` for a detailed setup guide, dependency list, and sample curl commands.
 
 ## Contributing
 This repository is a blueprint. Add implementation code in `services/` and `packages/` as your build out begins. Ensure all changes include tests and documentation updates.

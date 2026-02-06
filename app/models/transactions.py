@@ -6,7 +6,7 @@ from pydantic import BaseModel, Field
 
 class TransactionIn(BaseModel):
     external_id: str = Field(..., min_length=3)
-    amount: float = Field(..., gt=0)
+    amount: float
     currency: str = Field(..., min_length=3, max_length=3)
     timestamp: datetime
     merchant_raw: str = Field(..., min_length=1)

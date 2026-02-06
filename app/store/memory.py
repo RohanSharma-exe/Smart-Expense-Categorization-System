@@ -29,6 +29,3 @@ class InMemoryStore:
 
     def get_by_id(self, transaction_id: str) -> StoredTransaction | None:
         return self.transactions_by_id.get(transaction_id)
-
-    def list_transactions(self) -> list[StoredTransaction]:
-        return list(self.transactions_by_id.values())

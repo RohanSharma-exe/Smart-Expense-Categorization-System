@@ -45,11 +45,3 @@ def categorize_transaction(transaction_id: str) -> CategorizationResponse:
         confidence=result.confidence,
         explanation=result.explanation,
     )
-
-
-@router.get("/transactions", response_model=list[TransactionOut])
-def list_transactions() -> list[TransactionOut]:
-    return [
-        TransactionOut(transaction_id=txn.transaction_id, status="ingested")
-        for txn in store.list_transactions()
-    ]
